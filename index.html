@@ -140,7 +140,7 @@ html[lang=ko] .spine-nav .lbl{font-size:1.05rem}
 
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Chiropractor","name":"Rapha Chiropractic","founder":"Dr. Sangsoo Lee, DC","telephone":"+1-770-545-8242","faxNumber":"+1-770-545-8240","address":{"@type":"PostalAddress","streetAddress":"2148 Duluth Hwy, Suite 110","addressLocality":"Duluth","addressRegion":"GA","postalCode":"30097","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":33.9785996,"longitude":-84.0937255},"openingHours":["Mo-Fr 09:30-17:30","Sa 09:30-16:30"],"areaServed":["Duluth","Suwanee","Johns Creek","Lawrenceville"],"sameAs":["https://www.google.com/maps/place/Rapha+Chiropractic/@33.978604,-84.0963004,17z/data=!3m1!4b1!4m6!3m5!1s0x88f5bd903951ceb7:0xd6e31d1f1870f41d!8m2!3d33.9785996!4d-84.0937255!16s%2Fg%2F11fklf9ppw"]}
+{"@context":"https://schema.org","@type":"Chiropractor","name":"Rapha Chiropractic","founder":"Dr. Sangsoo Lee, DC","telephone":"+1-770-545-8242","address":{"@type":"PostalAddress","streetAddress":"2148 Duluth Hwy, Suite 110","addressLocality":"Duluth","addressRegion":"GA","postalCode":"30097","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":33.9785996,"longitude":-84.0937255},"openingHours":["Mo-Fr 09:30-17:30","Sa 09:30-16:30"],"areaServed":["Duluth","Suwanee","Johns Creek","Lawrenceville"],"sameAs":["https://www.google.com/maps/place/Rapha+Chiropractic/@33.978604,-84.0963004,17z/data=!3m1!4b1!4m6!3m5!1s0x88f5bd903951ceb7:0xd6e31d1f1870f41d!8m2!3d33.9785996!4d-84.0937255!16s%2Fg%2F11fklf9ppw"]}
 </script>
 </head>
 <body>
@@ -267,7 +267,7 @@ html[lang=ko] .spine-nav .lbl{font-size:1.05rem}
   <div class="info">
     <p><strong data-i18n="ct_addr">Address</strong><br><span data-fill="address"></span></p>
     <p><strong data-i18n="ct_phone">Phone</strong><br><a data-fill="phone" href="#"></a></p>
-    <p><strong data-i18n="ct_fax">Fax</strong><br><span data-fill="fax"></span></p>
+    <p><strong data-i18n="ct_text">Text</strong><br><a data-fill="text" href="#"></a></p>
     <p class="emailrow"><strong data-i18n="ct_email">Email</strong><br><a data-fill="email" href="#"></a></p>
     <p><strong data-i18n="ct_hours">Hours</strong></p>
     <table class="hours" id="hoursTable"></table>
@@ -300,7 +300,8 @@ const MARK = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAE/CAMAAACq+Sww
 const CONFIG = {
   phone: "(770) 545-8242",
   phoneHref: "+17705458242",
-  fax: "(770) 545-8240",
+  text: "(470) 642-3701",
+  textHref: "+14706423701",
   email: "raphachiroclinic@gmail.com",
   street: "2148 Duluth Hwy, Suite 110",
   city: "Duluth, GA 30097",
@@ -371,7 +372,7 @@ const KO = {
   r_empty:"리뷰를 불러오지 못했습니다. 구글에서 직접 확인하실 수 있습니다.",
 
   ct_h:"문의하기", ct_sub:"예약 문의와 오시는 길",
-  ct_addr:"주소", ct_phone:"전화", ct_fax:"팩스", ct_email:"이메일", ct_hours:"진료 시간",
+  ct_addr:"주소", ct_phone:"전화", ct_text:"문자", ct_email:"이메일", ct_hours:"진료 시간",
   f_h:"예약 문의", f_name:"이름", f_phone:"전화번호", f_email:"이메일", f_date:"희망 날짜", f_reason:"방문 사유", f_msg:"추가 메시지",
   o1:"허리 통증", o2:"목 통증", o3:"좌골신경통", o4:"두통", o5:"자동차 사고 부상", o6:"운동 부상", o7:"기타",
   f_note:"자세한 의료 정보는 적지 말아 주세요. 방문 시 직접 상담해 드립니다.", f_send:"문의 보내기",
@@ -400,7 +401,7 @@ if (hdr) hdr.outerHTML = `
 if (ftr) ftr.outerHTML = `
 <footer class="site"><div class="wrap">
   <div><h3>Rapha Chiropractic</h3><p>Dr. Sangsoo Lee, DC</p><p data-i18n="foot_tag">Chiropractor in Duluth, GA. Serving Suwanee, Johns Creek, and Lawrenceville.</p></div>
-  <div><h3 data-i18n="foot_visit">Visit us</h3><p>${CONFIG.street}<br>${CONFIG.city}</p><p><a href="tel:${CONFIG.phoneHref}">${CONFIG.phone}</a><br><span data-i18n="ct_fax">Fax</span>: ${CONFIG.fax}</p>${CONFIG.email ? `<p><a href="mailto:${CONFIG.email}">${CONFIG.email}</a></p>` : ""}</div>
+  <div><h3 data-i18n="foot_visit">Visit us</h3><p>${CONFIG.street}<br>${CONFIG.city}</p><p><a href="tel:${CONFIG.phoneHref}">${CONFIG.phone}</a><br><span data-i18n="ct_text">Text</span>: <a href="sms:${CONFIG.textHref}">${CONFIG.text}</a></p>${CONFIG.email ? `<p><a href="mailto:${CONFIG.email}">${CONFIG.email}</a></p>` : ""}</div>
   <div><h3 data-i18n="foot_hours">Hours</h3><div id="footHours"></div></div>
   <p class="copy">© ${new Date().getFullYear()} Rapha Chiropractic. <span data-i18n="foot_rights">All rights reserved.</span></p>
 </div></footer>`;
@@ -409,7 +410,7 @@ if (mb) mb.addEventListener("click", () => { const o = $("#nav").classList.toggl
 
 /* 전화번호, 주소, 시간 채우기 */
 $$("[data-fill=phone]").forEach(e => { e.textContent = CONFIG.phone; e.href = "tel:" + CONFIG.phoneHref; });
-$$("[data-fill=fax]").forEach(e => e.textContent = CONFIG.fax);
+$$("[data-fill=text]").forEach(e => { e.textContent = CONFIG.text; e.href = "sms:" + CONFIG.textHref; });
 $$("[data-fill=address]").forEach(e => e.innerHTML = `${CONFIG.street}<br>${CONFIG.city}`);
 $$("[data-fill=email]").forEach(e => { if (CONFIG.email) { e.textContent = CONFIG.email; e.href = "mailto:" + CONFIG.email; } else e.closest(".emailrow")?.remove(); });
 $$("[data-fill=mapsUrl]").forEach(e => e.href = CONFIG.mapsUrl);
